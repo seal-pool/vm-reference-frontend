@@ -1,4 +1,6 @@
 # ---> VisualStudioCode
 .settings
+._*
+config.php
 
 
