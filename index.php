@@ -20,6 +20,7 @@ if (isset($_GET['action']))
 $active_menu = G_VM_MENU_VENDING;
 $page = 'vending.php';
 $staking_address = NULL;
+$g_rewards = NULL;
 
 switch ($g_action)
 {
@@ -28,6 +29,8 @@ switch ($g_action)
         $page = "templates/about.php";
         break;
     case 'check_rewards':
+        $staking_address = API::SanitizeAddr(get_param_or_fail("staking_address"));
+        $g_rewards = API::GetRewards($staking_address);
         $page = "templates/withdrawal.php";
         break;
     case 'pools':

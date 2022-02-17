@@ -25,6 +25,11 @@ class API
         return self::get("sanitize_address&address=$address")["staking_address"];
     }
 
+    public static function GetRewards($staking_address)
+    {
+        return self::get("get_rewards&staking_address=${staking_address}");
+    }
+
     public static function GetPools()
     {
         return self::get("get_pools");
