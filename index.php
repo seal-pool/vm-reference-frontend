@@ -2,11 +2,12 @@
 
 define('G_VM_ENTRY_POINT', 'index.php');
 
-require_once("common.php");
 require_once("definitions.php");
 require("config.default.php");
 require("config.php");
-require_once("api.php");
+require_once("includes/api.php");
+require_once("includes/token_math.php");
+require_once("includes/common.php");
 require_once("3rd/Parsedown.php");
 
 $g_action = null;

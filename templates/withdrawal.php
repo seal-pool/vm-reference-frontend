@@ -26,7 +26,15 @@ if ($staking_address !== NULL)
         {
             $logo = $tokens[$token_id]['logo'];
             $ticker = $tokens[$token_id]['ticker'];
-            echo ("<tr><td width='64px'><img src=\"$logo\" alt=\"$ticker\" width=64 height=64></td><td>$ticker</td><td>$balance</td></tr>");
+            $formatted_balance = TokenMath::FormattedDecimals($balance, $tokens[$token_id]['decimals']);
+            echo ("<tr><td width='64px'><img src=\"$logo\" alt=\"$ticker\" width=64 height=64></td><td>$ticker</td><td>$formatted_balance</td></tr>");
+        }
+        foreach ($g_rewards['consolidated_promises'] as $token_id => $balance)
+        {
+            $logo = $tokens[$token_id]['logo'];
+            $ticker = $tokens[$token_id]['ticker'];
+            $formatted_balance = TokenMath::FormattedDecimals($balance, $tokens[$token_id]['decimals']);
+            echo ("<tr><td width='64px'><img src=\"$logo\" alt=\"$ticker\" width=64 height=64></td><td>$ticker *</td><td>$formatted_balance</td></tr>");
         }
         echo ('            </table>');
 
